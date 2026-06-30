@@ -1,4 +1,4 @@
-# VulnScope V1.2 Deployment Notes
+# VulnScope V1.3 Deployment Notes
 
 This public version is prepared for local/demo hosting, not production operation.
 
@@ -32,4 +32,4 @@ docker compose up --build
 - Set `CORS_ORIGINS` to the hosted frontend origin.
 - Run migrations before starting the API.
 - Do not publish real vulnerability inventories or private imports.
-<!-- Project version: VulnScope V1.2 -->
+<!-- Project version: VulnScope V1.3 -->

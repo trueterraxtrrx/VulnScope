@@ -13,4 +13,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

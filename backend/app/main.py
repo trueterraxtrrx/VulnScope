@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import api_router
 from app.core.config import settings
 
-app = FastAPI(title="VulnScope API", version="1.2.0")
+app = FastAPI(title="VulnScope API", version="1.3.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -20,4 +20,4 @@ app.include_router(api_router)
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

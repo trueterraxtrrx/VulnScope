@@ -22,4 +22,4 @@ class Asset(Base):
     criticality: Mapped[int] = mapped_column(Integer, default=3, nullable=False)
     last_seen_at: Mapped[datetime | None] = mapped_column(DateTime)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

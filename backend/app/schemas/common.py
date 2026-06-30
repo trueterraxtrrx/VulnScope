@@ -25,4 +25,4 @@ class AuditLogOut(ORMModel):
     target_id: str | None
     metadata_json: dict
     created_at: datetime
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

@@ -1,4 +1,4 @@
-# VulnScope V1.2
+# VulnScope V1.3
 
 Vulnerability exposure management dashboard for assets, software inventory, CVEs and remediation tracking.
 
@@ -92,4 +92,4 @@ VulnScope pairs with SentinelX, LogForge and ThreatVault. Future KRYNEX Nexus ma
 ## License
 
 MIT.
-<!-- Project version: VulnScope V1.2 -->
+<!-- Project version: VulnScope V1.3 -->

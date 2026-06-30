@@ -70,4 +70,4 @@ def list_imports(db: Session = Depends(get_db), user: User = Depends(get_current
         .where(ImportRecord.organization_id == user.organization_id)
         .order_by(ImportRecord.created_at.desc())
     ).all()
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

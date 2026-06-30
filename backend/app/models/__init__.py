@@ -1,2 +1,2 @@
 
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

@@ -2,4 +2,4 @@ __pycache__
 *.pyc
 .pytest_cache
 .mypy_cache
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

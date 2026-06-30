@@ -19,4 +19,4 @@ class AuditLog(Base):
     target_id: Mapped[str | None] = mapped_column(String(128))
     metadata_json: Mapped[dict] = mapped_column(JSONB, default=dict, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

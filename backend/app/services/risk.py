@@ -25,4 +25,4 @@ def calculate_risk_score(asset: Asset, cve: CVE) -> float:
 def package_matches_cve(package: SoftwarePackage, cve: CVE) -> bool:
     haystack = f"{cve.title} {cve.description or ''}".lower()
     return package.name.lower() in haystack
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

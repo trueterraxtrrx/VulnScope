@@ -68,4 +68,4 @@ export type DashboardStats = {
   average_risk_score: number;
   severity_counts: Record<string, number>;
 };
-// Project version: VulnScope V1.2
+// Project version: VulnScope V1.3

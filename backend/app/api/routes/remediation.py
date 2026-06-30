@@ -53,4 +53,4 @@ def update_task(task_id: str, payload: RemediationTaskUpdate, db: Session = Depe
     db.commit()
     db.refresh(task)
     return task
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

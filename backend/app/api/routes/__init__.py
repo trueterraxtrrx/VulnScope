@@ -12,4 +12,4 @@ api_router.include_router(vulnerabilities.router)
 api_router.include_router(remediation.router)
 api_router.include_router(imports.router)
 api_router.include_router(dashboard.router)
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

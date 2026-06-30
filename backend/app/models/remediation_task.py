@@ -20,4 +20,4 @@ class RemediationTask(Base):
     assignee: Mapped[str | None] = mapped_column(String(255))
     due_date: Mapped[datetime | None] = mapped_column(DateTime)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

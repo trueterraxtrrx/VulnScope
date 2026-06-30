@@ -3,4 +3,4 @@ from sqlalchemy.orm import DeclarativeBase
 
 class Base(DeclarativeBase):
     pass
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3

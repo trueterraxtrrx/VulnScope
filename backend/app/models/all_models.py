@@ -20,4 +20,4 @@ __all__ = [
     "SoftwarePackage",
     "User",
 ]
-# Project version: VulnScope V1.2
+# Project version: VulnScope V1.3
