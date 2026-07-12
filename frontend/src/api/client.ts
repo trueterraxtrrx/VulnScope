@@ -91,4 +91,4 @@ export const api = {
   post: <T>(path: string, body: unknown) => request<T>(path, { method: "POST", body: JSON.stringify(body) }),
   patch: <T>(path: string, body: unknown) => request<T>(path, { method: "PATCH", body: JSON.stringify(body) })
 };
-// Project version: VulnScope V1.4
+// Project version: VulnScope V1.5

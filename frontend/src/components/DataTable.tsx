@@ -42,4 +42,4 @@ export function DataTable<T>({
     </div>
   );
 }
-// Project version: VulnScope V1.4
+// Project version: VulnScope V1.5

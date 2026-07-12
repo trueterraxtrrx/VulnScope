@@ -11,4 +11,4 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-// Project version: VulnScope V1.4
+// Project version: VulnScope V1.5

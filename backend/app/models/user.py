@@ -33,4 +33,4 @@ class APIKey(Base):
     hashed_key: Mapped[str] = mapped_column(String(255), nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
     last_used_at: Mapped[datetime | None] = mapped_column(DateTime)
-# Project version: VulnScope V1.4
+# Project version: VulnScope V1.5

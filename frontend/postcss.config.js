@@ -4,4 +4,4 @@ export default {
     autoprefixer: {}
   }
 };
-// Project version: VulnScope V1.4
+// Project version: VulnScope V1.5

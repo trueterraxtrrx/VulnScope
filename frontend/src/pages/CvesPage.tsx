@@ -55,4 +55,4 @@ export function CvesPage() {
     </>
   );
 }
-// Project version: VulnScope V1.4
+// Project version: VulnScope V1.5

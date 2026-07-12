@@ -264,4 +264,4 @@ server.listen(4445, "127.0.0.1", () => {
   console.log("VulnScope local API listening on http://127.0.0.1:4445");
   console.log("Admin: admin@krynex.local / password123");
 });
-// Project version: VulnScope V1.4
+// Project version: VulnScope V1.5

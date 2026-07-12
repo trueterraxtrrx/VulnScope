@@ -37,4 +37,4 @@ def get_cve(cve_id: str, db: Session = Depends(get_db), _: User = Depends(get_cu
     if not cve:
         raise HTTPException(status_code=404, detail="CVE not found")
     return cve
-# Project version: VulnScope V1.4
+# Project version: VulnScope V1.5

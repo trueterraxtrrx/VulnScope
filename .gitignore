@@ -17,4 +17,6 @@ uploads
 coverage
 .cache
 docs/
-# Project version: VulnScope V1.4
+backend/cpp/**/build/
+backend/cpp/**/*.exe
+# Project version: VulnScope V1.5
