@@ -40,3 +40,4 @@ def get_cve(cve_id: str, db: Session = Depends(get_db), _: User = Depends(get_cu
 # Project version: VulnScope V1.5
 
 
+

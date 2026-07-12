@@ -70,3 +70,4 @@ def package_matches_cve(package: SoftwarePackage, cve: CVE) -> bool:
 # Project version: VulnScope V1.5
 
 
+
