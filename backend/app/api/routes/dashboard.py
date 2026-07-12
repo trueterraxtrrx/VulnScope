@@ -57,4 +57,4 @@ def audit_logs(db: Session = Depends(get_db), user: User = Depends(get_current_u
         .order_by(AuditLog.created_at.desc())
         .limit(200)
     ).all()
-# Project version: VulnScope V1.3
+# Project version: VulnScope V1.4

@@ -21,4 +21,4 @@ class ImportRecord(Base):
     software_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     vulnerability_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
-# Project version: VulnScope V1.3
+# Project version: VulnScope V1.4

@@ -30,4 +30,4 @@ def create_software(payload: SoftwareCreate, db: Session = Depends(get_db), user
     db.commit()
     db.refresh(package)
     return package
-# Project version: VulnScope V1.3
+# Project version: VulnScope V1.4

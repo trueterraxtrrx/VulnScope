@@ -8,4 +8,4 @@ celery_app = Celery("vulnscope", broker=settings.redis_url, backend=settings.red
 @celery_app.task(name="vulnscope.placeholder")
 def placeholder_task() -> str:
     return "ready"
-# Project version: VulnScope V1.3
+# Project version: VulnScope V1.4

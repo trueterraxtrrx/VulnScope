@@ -15,4 +15,4 @@ def get_db() -> Generator[Session, None, None]:
         yield db
     finally:
         db.close()
-# Project version: VulnScope V1.3
+# Project version: VulnScope V1.4

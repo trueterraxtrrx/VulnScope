@@ -1,4 +1,4 @@
-# VulnScope V1.3
+# VulnScope V1.4
 
 Vulnerability exposure management dashboard for assets, software inventory, CVEs and remediation tracking.
 
@@ -79,6 +79,7 @@ VulnScope is defensive-only. It correlates inventory and CVE metadata. It does n
 
 ## Roadmap
 
+- Expanded V1.4 roadmap notes for demo imports, executive exposure summaries, and remediation SLA views.
 - Add richer demo import datasets.
 - Add executive exposure summary widgets.
 - Add remediation SLA views.
@@ -92,4 +93,4 @@ VulnScope pairs with SentinelX, LogForge and ThreatVault. Future KRYNEX Nexus ma
 ## License
 
 MIT.
-<!-- Project version: VulnScope V1.3 -->
+<!-- Project version: VulnScope V1.4 -->

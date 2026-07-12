@@ -26,4 +26,4 @@ textarea {
 .focus-ring {
   @apply focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2 focus:ring-offset-bg;
 }
-/* Project version: VulnScope V1.3 */
+/* Project version: VulnScope V1.4 */
