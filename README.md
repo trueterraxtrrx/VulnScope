@@ -1,5 +1,4 @@
-# VulnScope V1.5
-
+# VulnScope V1.0
 Vulnerability exposure management dashboard for assets, software inventory, CVEs and remediation tracking.
 
 ## Product Overview
@@ -79,12 +78,19 @@ VulnScope is defensive-only. It correlates inventory and CVE metadata. It does n
 
 ## Roadmap
 
-- Expanded V1.4 roadmap notes for demo imports, executive exposure summaries, and remediation SLA views.
-- Add richer demo import datasets.
-- Add executive exposure summary widgets.
-- Add remediation SLA views.
-- Add read-only public demo controls.
-- Add hosted demo deployment profile.
+### Already implemented
+
+- FastAPI and React public demo for assets, software inventory, CVEs and remediation tasks.
+- C++ risk engine path for vulnerability matching and score calculation with safe fallback.
+- Production guards for secrets, CORS and demo-mode boundaries.
+- Password-strength validation and smoke-tested forced C++ analysis path.
+
+### Will be implemented
+
+- Richer demo import datasets for synthetic assets and package inventories.
+- Executive exposure summary widgets and remediation SLA views.
+- Read-only public demo controls and hosted deployment profile.
+- Broader API and UI smoke tests for inventory, matching and remediation workflows.
 
 ## KRYNEX Ecosystem
 
@@ -93,5 +99,5 @@ VulnScope pairs with SentinelX, LogForge and ThreatVault. Future KRYNEX Nexus ma
 ## License
 
 MIT.
-<!-- Project version: VulnScope V1.5 -->
+<!-- Project version: VulnScope V1.0 -->
 
