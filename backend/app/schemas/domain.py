@@ -165,3 +165,4 @@ class DashboardStats(BaseModel):
     severity_counts: dict[str, int]
 # Project version: VulnScope V1.5
 
+

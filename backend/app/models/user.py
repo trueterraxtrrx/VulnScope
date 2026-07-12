@@ -35,3 +35,4 @@ class APIKey(Base):
     last_used_at: Mapped[datetime | None] = mapped_column(DateTime)
 # Project version: VulnScope V1.5
 
+

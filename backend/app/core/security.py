@@ -22,3 +22,4 @@ def create_access_token(subject: str) -> str:
     return jwt.encode({"sub": subject, "exp": expires}, settings.secret_key, algorithm=ALGORITHM)
 # Project version: VulnScope V1.5
 
+

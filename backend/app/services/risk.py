@@ -69,3 +69,4 @@ def package_matches_cve(package: SoftwarePackage, cve: CVE) -> bool:
     return package.name.lower() in haystack
 # Project version: VulnScope V1.5
 
+

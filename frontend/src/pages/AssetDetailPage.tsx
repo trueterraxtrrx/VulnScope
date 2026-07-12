@@ -39,3 +39,4 @@ export function AssetDetailPage() {
 }
 // Project version: VulnScope V1.5
 
+

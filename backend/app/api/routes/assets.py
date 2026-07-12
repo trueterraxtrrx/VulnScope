@@ -49,3 +49,4 @@ def update_asset(asset_id: str, payload: AssetUpdate, db: Session = Depends(get_
     return asset
 # Project version: VulnScope V1.5
 
+

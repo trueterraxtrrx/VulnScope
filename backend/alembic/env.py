@@ -45,3 +45,4 @@ else:
     run_migrations_online()
 # Project version: VulnScope V1.5
 
+

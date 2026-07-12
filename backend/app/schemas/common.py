@@ -27,3 +27,4 @@ class AuditLogOut(ORMModel):
     created_at: datetime
 # Project version: VulnScope V1.5
 
+

@@ -17,3 +17,4 @@ def get_db() -> Generator[Session, None, None]:
         db.close()
 # Project version: VulnScope V1.5
 
+
