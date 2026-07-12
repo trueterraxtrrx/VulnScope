@@ -21,3 +21,4 @@ class CVE(Base):
     references: Mapped[list[str]] = mapped_column(ARRAY(String), default=list, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
 # Project version: VulnScope V1.5
+

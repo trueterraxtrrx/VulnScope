@@ -23,3 +23,4 @@ class Asset(Base):
     last_seen_at: Mapped[datetime | None] = mapped_column(DateTime)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
 # Project version: VulnScope V1.5
+

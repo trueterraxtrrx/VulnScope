@@ -89,3 +89,4 @@ def update_status(
     db.refresh(vuln)
     return vuln
 # Project version: VulnScope V1.5
+

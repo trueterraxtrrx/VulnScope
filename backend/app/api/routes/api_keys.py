@@ -63,3 +63,4 @@ def delete_api_key(api_key_id: str, db: Session = Depends(get_db), user: User = 
     write_audit(db, user, "api_key.deleted", "api_key", api_key_id)
     db.commit()
 # Project version: VulnScope V1.5
+

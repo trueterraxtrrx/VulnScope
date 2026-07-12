@@ -26,3 +26,4 @@ class AuditLogOut(ORMModel):
     metadata_json: dict
     created_at: datetime
 # Project version: VulnScope V1.5
+

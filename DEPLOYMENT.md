@@ -33,3 +33,4 @@ docker compose up --build
 - Run migrations before starting the API.
 - Do not publish real vulnerability inventories or private imports.
 <!-- Project version: VulnScope V1.5 -->
+

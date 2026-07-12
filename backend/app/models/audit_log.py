@@ -20,3 +20,4 @@ class AuditLog(Base):
     metadata_json: Mapped[dict] = mapped_column(JSONB, default=dict, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
 # Project version: VulnScope V1.5
+

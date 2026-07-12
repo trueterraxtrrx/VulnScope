@@ -92,3 +92,4 @@ export const api = {
   patch: <T>(path: string, body: unknown) => request<T>(path, { method: "PATCH", body: JSON.stringify(body) })
 };
 // Project version: VulnScope V1.5
+

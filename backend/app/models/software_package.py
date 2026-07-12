@@ -20,3 +20,4 @@ class SoftwarePackage(Base):
     package_type: Mapped[str] = mapped_column(String(64), default="os", nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
 # Project version: VulnScope V1.5
+

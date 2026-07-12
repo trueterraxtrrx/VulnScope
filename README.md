@@ -94,3 +94,4 @@ VulnScope pairs with SentinelX, LogForge and ThreatVault. Future KRYNEX Nexus ma
 
 MIT.
 <!-- Project version: VulnScope V1.5 -->
+

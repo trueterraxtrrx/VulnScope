@@ -27,3 +27,4 @@ def get_current_user(
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found")
     return user
 # Project version: VulnScope V1.5
+

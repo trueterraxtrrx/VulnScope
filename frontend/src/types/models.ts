@@ -69,3 +69,4 @@ export type DashboardStats = {
   severity_counts: Record<string, number>;
 };
 // Project version: VulnScope V1.5
+
