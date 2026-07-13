@@ -34,6 +34,13 @@ double criticality_multiplier(int criticality) {
     }
 }
 
+std::string sla_status(double score, int age_days) {
+    const int limit = score >= 9.0 ? 7 : score >= 7.0 ? 14 : score >= 4.0 ? 30 : 60;
+    if (age_days > limit) return "overdue";
+    if (age_days >= limit - 3) return "due_soon";
+    return "on_track";
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -53,6 +60,12 @@ int main(int argc, char** argv) {
         const double cvss = std::stod(argv[4]);
         const double score = std::min(cvss * criticality_multiplier(std::stoi(argv[3])) * exposure_multiplier(argv[2]), 10.0);
         std::cout << std::fixed << std::setprecision(2) << (std::round(score * 100.0) / 100.0) << "\n";
+        return 0;
+    }
+    if (mode == "sla" && argc == 6) {
+        const double cvss = std::stod(argv[4]);
+        const double score = std::min(cvss * criticality_multiplier(std::stoi(argv[3])) * exposure_multiplier(argv[2]), 10.0);
+        std::cout << sla_status(score, std::stoi(argv[5])) << "\n";
         return 0;
     }
     return 2;

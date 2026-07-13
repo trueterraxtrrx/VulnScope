@@ -59,6 +59,19 @@ def calculate_risk_score(asset: Asset, cve: CVE) -> float:
     return round(min(score, 10.0), 2)
 
 
+def remediation_sla_status(asset: Asset, cve: CVE, age_days: int) -> str:
+    cpp_status = _run_cpp_engine("sla", asset.environment, str(asset.criticality), str(cve.cvss_score), str(age_days))
+    if cpp_status in {"overdue", "due_soon", "on_track"}:
+        return cpp_status
+    score = calculate_risk_score(asset, cve)
+    limit = 7 if score >= 9.0 else 14 if score >= 7.0 else 30 if score >= 4.0 else 60
+    if age_days > limit:
+        return "overdue"
+    if age_days >= limit - 3:
+        return "due_soon"
+    return "on_track"
+
+
 def package_matches_cve(package: SoftwarePackage, cve: CVE) -> bool:
     haystack = f"{cve.title} {cve.description or ''}".lower()
     cpp_match = None

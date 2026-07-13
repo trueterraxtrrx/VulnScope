@@ -82,6 +82,7 @@ VulnScope is defensive-only. It correlates inventory and CVE metadata. It does n
 
 - FastAPI and React public demo for assets, software inventory, CVEs and remediation tasks.
 - C++ risk engine path for vulnerability matching and score calculation with safe fallback.
+- C++ remediation SLA triage mode for overdue, due-soon and on-track exposure workflows.
 - Production guards for secrets, CORS and demo-mode boundaries.
 - Password-strength validation and smoke-tested forced C++ analysis path.
 
@@ -90,7 +91,7 @@ VulnScope is defensive-only. It correlates inventory and CVE metadata. It does n
 - Richer demo import datasets for synthetic assets and package inventories.
 - Executive exposure summary widgets and remediation SLA views.
 - Read-only public demo controls and hosted deployment profile.
-- Broader API and UI smoke tests for inventory, matching and remediation workflows.
+- Broader API and UI smoke tests for inventory and remediation workflows.
 
 ## KRYNEX Ecosystem
 
