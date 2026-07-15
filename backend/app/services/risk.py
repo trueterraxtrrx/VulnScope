@@ -72,6 +72,31 @@ def remediation_sla_status(asset: Asset, cve: CVE, age_days: int) -> str:
     return "on_track"
 
 
+def summarize_exposure_portfolio(items: list[dict[str, object]]) -> dict[str, object]:
+    rows = "\n".join(
+        f"{item.get('severity', '')},{float(item.get('risk_score', 0.0))},{item.get('status', '')}"
+        for item in items
+    )
+    cpp_summary = _run_cpp_engine("portfolio", input_text=rows)
+    if cpp_summary:
+        import json
+
+        try:
+            return json.loads(cpp_summary)
+        except json.JSONDecodeError:
+            pass
+    total = len(items)
+    open_count = sum(1 for item in items if item.get("status") not in {"fixed", "closed"})
+    critical = sum(1 for item in items if item.get("severity") == "critical" or float(item.get("risk_score", 0.0)) >= 9.0)
+    urgent = sum(
+        1
+        for item in items
+        if float(item.get("risk_score", 0.0)) >= 7.0 and item.get("status") not in {"fixed", "closed"}
+    )
+    average = round(sum(float(item.get("risk_score", 0.0)) for item in items) / total, 2) if total else 0.0
+    return {"total": total, "open": open_count, "critical": critical, "urgent": urgent, "average_risk": average}
+
+
 def package_matches_cve(package: SoftwarePackage, cve: CVE) -> bool:
     haystack = f"{cve.title} {cve.description or ''}".lower()
     cpp_match = None

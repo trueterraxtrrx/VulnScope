@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 namespace {
 
@@ -41,6 +42,45 @@ std::string sla_status(double score, int age_days) {
     return "on_track";
 }
 
+std::vector<std::string> split_csv(const std::string& line) {
+    std::vector<std::string> fields;
+    std::string current;
+    std::stringstream stream(line);
+    while (std::getline(stream, current, ',')) {
+        fields.push_back(current);
+    }
+    return fields;
+}
+
+void write_portfolio_summary() {
+    std::string line;
+    int total = 0;
+    int open = 0;
+    int critical = 0;
+    int urgent = 0;
+    double risk_sum = 0.0;
+    while (std::getline(std::cin, line)) {
+        if (line.empty()) continue;
+        const auto fields = split_csv(line);
+        if (fields.size() < 3) continue;
+        const std::string severity = lower_copy(fields[0]);
+        const double risk = std::stod(fields[1]);
+        const std::string status = lower_copy(fields[2]);
+        ++total;
+        risk_sum += risk;
+        if (status != "fixed" && status != "closed") ++open;
+        if (severity == "critical" || risk >= 9.0) ++critical;
+        if ((severity == "critical" || risk >= 7.0) && status != "fixed" && status != "closed") ++urgent;
+    }
+    const double average = total == 0 ? 0.0 : risk_sum / total;
+    std::cout << "{\"total\":" << total
+              << ",\"open\":" << open
+              << ",\"critical\":" << critical
+              << ",\"urgent\":" << urgent
+              << ",\"average_risk\":" << std::fixed << std::setprecision(2) << average
+              << "}\n";
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -66,6 +106,10 @@ int main(int argc, char** argv) {
         const double cvss = std::stod(argv[4]);
         const double score = std::min(cvss * criticality_multiplier(std::stoi(argv[3])) * exposure_multiplier(argv[2]), 10.0);
         std::cout << sla_status(score, std::stoi(argv[5])) << "\n";
+        return 0;
+    }
+    if (mode == "portfolio" && argc == 2) {
+        write_portfolio_summary();
         return 0;
     }
     return 2;
