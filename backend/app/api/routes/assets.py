@@ -52,3 +52,4 @@ def update_asset(asset_id: str, payload: AssetUpdate, db: Session = Depends(get_
 
 
 
+
