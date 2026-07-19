@@ -81,6 +81,28 @@ void write_portfolio_summary() {
               << "}\n";
 }
 
+void write_sla_backlog() {
+    std::string line;
+    int total = 0;
+    int overdue = 0;
+    int due_soon = 0;
+    while (std::getline(std::cin, line)) {
+        if (line.empty()) continue;
+        const auto fields = split_csv(line);
+        if (fields.size() < 4) continue;
+        const auto status = lower_copy(fields[2]);
+        if (status == "fixed" || status == "closed") continue;
+        ++total;
+        const auto state = sla_status(std::stod(fields[1]), std::stoi(fields[3]));
+        if (state == "overdue") ++overdue;
+        if (state == "due_soon") ++due_soon;
+    }
+    std::cout << "{\"open_sla_items\":" << total
+              << ",\"overdue\":" << overdue
+              << ",\"due_soon\":" << due_soon
+              << "}\n";
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -110,6 +132,10 @@ int main(int argc, char** argv) {
     }
     if (mode == "portfolio" && argc == 2) {
         write_portfolio_summary();
+        return 0;
+    }
+    if (mode == "backlog" && argc == 2) {
+        write_sla_backlog();
         return 0;
     }
     return 2;

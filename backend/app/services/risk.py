@@ -97,6 +97,27 @@ def summarize_exposure_portfolio(items: list[dict[str, object]]) -> dict[str, ob
     return {"total": total, "open": open_count, "critical": critical, "urgent": urgent, "average_risk": average}
 
 
+def summarize_sla_backlog(items: list[dict[str, object]]) -> dict[str, int]:
+    rows = "\n".join(
+        f"{item.get('severity', '')},{float(item.get('risk_score', 0.0))},{item.get('status', '')},{int(item.get('age_days', 0))}"
+        for item in items
+    )
+    cpp_summary = _run_cpp_engine("backlog", input_text=rows)
+    if cpp_summary:
+        import json
+
+        try:
+            parsed = json.loads(cpp_summary)
+            if isinstance(parsed, dict):
+                return {key: int(parsed.get(key, 0)) for key in ("open_sla_items", "overdue", "due_soon")}
+        except json.JSONDecodeError:
+            pass
+    open_items = [item for item in items if item.get("status") not in {"fixed", "closed"}]
+    overdue = sum(1 for item in open_items if int(item.get("age_days", 0)) > 14)
+    due_soon = sum(1 for item in open_items if 11 <= int(item.get("age_days", 0)) <= 14)
+    return {"open_sla_items": len(open_items), "overdue": overdue, "due_soon": due_soon}
+
+
 def package_matches_cve(package: SoftwarePackage, cve: CVE) -> bool:
     haystack = f"{cve.title} {cve.description or ''}".lower()
     cpp_match = None

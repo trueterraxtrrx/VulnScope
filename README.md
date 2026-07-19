@@ -84,13 +84,14 @@ VulnScope is defensive-only. It correlates inventory and CVE metadata. It does n
 - C++ risk engine path for vulnerability matching and score calculation with safe fallback.
 - C++ remediation SLA triage mode for overdue, due-soon and on-track exposure workflows.
 - C++ executive exposure summary mode for portfolio risk, urgent items and open workload.
+- C++ SLA backlog summary mode for overdue and due-soon remediation queues.
 - Production guards for secrets, CORS and demo-mode boundaries.
 - Password-strength validation and smoke-tested forced C++ analysis path.
 
 ### Will be implemented
 
 - Richer demo import datasets for synthetic assets and package inventories.
-- Frontend widgets for executive exposure summaries and remediation SLA views.
+- Frontend widgets for executive exposure, SLA backlog and remediation queue views.
 - Read-only public demo controls and hosted deployment profile.
 - Broader API and UI smoke tests for inventory and remediation workflows.
 
