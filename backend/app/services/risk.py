@@ -72,6 +72,20 @@ def remediation_sla_status(asset: Asset, cve: CVE, age_days: int) -> str:
     return "on_track"
 
 
+def remediation_priority(asset: Asset, cve: CVE, age_days: int) -> str:
+    cpp_priority = _run_cpp_engine("priority", asset.environment, str(asset.criticality), str(cve.cvss_score), str(age_days))
+    if cpp_priority in {"p0", "p1", "p2", "p3"}:
+        return cpp_priority
+    score = calculate_risk_score(asset, cve)
+    if score >= 9.0 or age_days > 30:
+        return "p0"
+    if score >= 7.0 or age_days > 14:
+        return "p1"
+    if score >= 4.0 or age_days > 7:
+        return "p2"
+    return "p3"
+
+
 def summarize_exposure_portfolio(items: list[dict[str, object]]) -> dict[str, object]:
     rows = "\n".join(
         f"{item.get('severity', '')},{float(item.get('risk_score', 0.0))},{item.get('status', '')}"

@@ -42,6 +42,13 @@ std::string sla_status(double score, int age_days) {
     return "on_track";
 }
 
+std::string remediation_priority(double score, int age_days) {
+    if (score >= 9.0 || age_days > 30) return "p0";
+    if (score >= 7.0 || age_days > 14) return "p1";
+    if (score >= 4.0 || age_days > 7) return "p2";
+    return "p3";
+}
+
 std::vector<std::string> split_csv(const std::string& line) {
     std::vector<std::string> fields;
     std::string current;
@@ -128,6 +135,12 @@ int main(int argc, char** argv) {
         const double cvss = std::stod(argv[4]);
         const double score = std::min(cvss * criticality_multiplier(std::stoi(argv[3])) * exposure_multiplier(argv[2]), 10.0);
         std::cout << sla_status(score, std::stoi(argv[5])) << "\n";
+        return 0;
+    }
+    if (mode == "priority" && argc == 6) {
+        const double cvss = std::stod(argv[4]);
+        const double score = std::min(cvss * criticality_multiplier(std::stoi(argv[3])) * exposure_multiplier(argv[2]), 10.0);
+        std::cout << remediation_priority(score, std::stoi(argv[5])) << "\n";
         return 0;
     }
     if (mode == "portfolio" && argc == 2) {
