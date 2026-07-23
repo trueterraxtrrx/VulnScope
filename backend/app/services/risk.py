@@ -132,6 +132,27 @@ def summarize_sla_backlog(items: list[dict[str, object]]) -> dict[str, int]:
     return {"open_sla_items": len(open_items), "overdue": overdue, "due_soon": due_soon}
 
 
+def summarize_priority_mix(items: list[dict[str, object]]) -> dict[str, int]:
+    rows = "\n".join(f"{float(item.get('risk_score', 0.0))},{int(item.get('age_days', 0))}" for item in items)
+    cpp_summary = _run_cpp_engine("priority-mix", input_text=rows)
+    if cpp_summary:
+        import json
+
+        try:
+            parsed = json.loads(cpp_summary)
+            if isinstance(parsed, dict):
+                return {key: int(parsed.get(key, 0)) for key in ("p0", "p1", "p2", "p3")}
+        except json.JSONDecodeError:
+            pass
+    summary = {"p0": 0, "p1": 0, "p2": 0, "p3": 0}
+    for item in items:
+        score = float(item.get("risk_score", 0.0))
+        age_days = int(item.get("age_days", 0))
+        key = "p0" if score >= 9.0 or age_days > 30 else "p1" if score >= 7.0 or age_days > 14 else "p2" if score >= 4.0 or age_days > 7 else "p3"
+        summary[key] += 1
+    return summary
+
+
 def package_matches_cve(package: SoftwarePackage, cve: CVE) -> bool:
     haystack = f"{cve.title} {cve.description or ''}".lower()
     cpp_match = None

@@ -17,6 +17,13 @@ std::string lower_copy(std::string value) {
     return value;
 }
 
+std::string trim_copy(std::string value) {
+    const auto first = value.find_first_not_of(" \t\r\n");
+    if (first == std::string::npos) return "";
+    const auto last = value.find_last_not_of(" \t\r\n");
+    return value.substr(first, last - first + 1);
+}
+
 double exposure_multiplier(const std::string& environment) {
     if (environment == "internet") return 1.5;
     if (environment == "production") return 1.25;
@@ -110,6 +117,29 @@ void write_sla_backlog() {
               << "}\n";
 }
 
+void write_priority_mix() {
+    std::string line;
+    int p0 = 0;
+    int p1 = 0;
+    int p2 = 0;
+    int p3 = 0;
+    while (std::getline(std::cin, line)) {
+        if (line.empty()) continue;
+        const auto fields = split_csv(line);
+        if (fields.size() < 2) continue;
+        try {
+            const auto priority = remediation_priority(std::stod(trim_copy(fields[0])), std::stoi(trim_copy(fields[1])));
+            if (priority == "p0") ++p0;
+            else if (priority == "p1") ++p1;
+            else if (priority == "p2") ++p2;
+            else ++p3;
+        } catch (const std::exception&) {
+            continue;
+        }
+    }
+    std::cout << "{\"p0\":" << p0 << ",\"p1\":" << p1 << ",\"p2\":" << p2 << ",\"p3\":" << p3 << "}\n";
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -151,10 +181,13 @@ int main(int argc, char** argv) {
         write_sla_backlog();
         return 0;
     }
+    if (mode == "priority-mix" && argc == 2) {
+        write_priority_mix();
+        return 0;
+    }
     return 2;
 }
 // Project version: VulnScope V1.5
-
 
 
 
